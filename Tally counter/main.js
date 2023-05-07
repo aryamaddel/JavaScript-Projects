@@ -11,8 +11,6 @@ function increment() {
 function reset() {
   count = 0;
   countEl.innerText = count;
-  readings = [];
-  readingEl.innerText = "readings:";
 }
 
 function mark() {
