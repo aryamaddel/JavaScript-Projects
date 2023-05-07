@@ -1,29 +1,21 @@
-let countEl = document.getElementById("count-el");
-let readingEl = document.getElementById("reading-el");
 let count = 0;
-let readings = "readings:";
-let increment_status_checker = true;
+let readings = [];
+const countEl = document.getElementById("count-el");
+const readingEl = document.getElementById("reading-el");
+
 function increment() {
-  console.log("Button was clicked");
-  count = count + 1;
+  count++;
   countEl.innerText = count;
-  increment_status_checker = true;
 }
+
 function reset() {
   count = 0;
   countEl.innerText = count;
-  increment_status_checker = true;
+  readings = [];
+  readingEl.innerText = "readings:";
 }
-function mark() {
-  if (increment_status_checker == true) {
-    // console.log(count);
-    if (readings == "readings:") {
-      readings = readings + count;
-    } else {
-      readings = readings + ", " + count;
-    }
 
-    readingEl.innerText = readings;
-    increment_status_checker = false;
-  }
+function mark() {
+  readings.push(count);
+  readingEl.innerText = "readings: " + readings.join(", ");
 }
